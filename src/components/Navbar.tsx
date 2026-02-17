@@ -19,8 +19,15 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <a href="#home" className="group text-lg font-bold tracking-tight text-foreground transition-transform duration-200 hover:scale-105">
-          <span className="text-primary font-extrabold transition-colors duration-300 group-hover:text-primary/80">G</span>inesh Tandel<span className="text-primary transition-transform duration-300 inline-block group-hover:rotate-12">.</span>
+        <a
+          href="#home"
+          className="group text-lg font-bold tracking-tight text-foreground transition-transform duration-200 hover:scale-150"
+        >
+          <span className="text-primary font-extrabold transition-colors duration-300 group-hover:text-primary/80">
+            G
+          </span>
+          inesh
+          <span className="text-primary transition-transform duration-300 inline-block group-hover:rotate-12"></span>
         </a>
 
         {/* Desktop nav — centered */}
@@ -56,7 +63,11 @@ export function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </Button>
         </div>
       </nav>

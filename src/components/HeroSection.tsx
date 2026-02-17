@@ -4,10 +4,17 @@ import { Button } from "@/components/ui/button";
 
 const titles = ["Senior .NET", "Full Stack", "Developer"];
 
-function useTypingEffect(words: string[], typingSpeed = 80, deletingSpeed = 50, pauseTime = 1500) {
+function useTypingEffect(
+  words: string[],
+  typingSpeed = 80,
+  deletingSpeed = 50,
+  pauseTime = 1500,
+) {
   const [displayText, setDisplayText] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
-  const [phase, setPhase] = useState<"typing" | "pausing" | "deleting">("typing");
+  const [phase, setPhase] = useState<"typing" | "pausing" | "deleting">(
+    "typing",
+  );
   const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
@@ -17,7 +24,10 @@ function useTypingEffect(words: string[], typingSpeed = 80, deletingSpeed = 50, 
 
     if (phase === "typing") {
       if (displayText.length < currentWord.length) {
-        const t = setTimeout(() => setDisplayText(currentWord.slice(0, displayText.length + 1)), typingSpeed);
+        const t = setTimeout(
+          () => setDisplayText(currentWord.slice(0, displayText.length + 1)),
+          typingSpeed,
+        );
         return () => clearTimeout(t);
       }
       // Fully typed
@@ -36,13 +46,25 @@ function useTypingEffect(words: string[], typingSpeed = 80, deletingSpeed = 50, 
 
     if (phase === "deleting") {
       if (displayText.length > 0) {
-        const t = setTimeout(() => setDisplayText(displayText.slice(0, -1)), deletingSpeed);
+        const t = setTimeout(
+          () => setDisplayText(displayText.slice(0, -1)),
+          deletingSpeed,
+        );
         return () => clearTimeout(t);
       }
       setWordIndex((prev) => prev + 1);
       setPhase("typing");
     }
-  }, [displayText, phase, wordIndex, isDone, words, typingSpeed, deletingSpeed, pauseTime]);
+  }, [
+    displayText,
+    phase,
+    wordIndex,
+    isDone,
+    words,
+    typingSpeed,
+    deletingSpeed,
+    pauseTime,
+  ]);
 
   return { displayText, wordIndex, isDone };
 }
@@ -55,15 +77,27 @@ export function HeroSection() {
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 md:grid-cols-2">
         <div>
           <p className="animate-fade-up text-lg text-muted-foreground">
-            Hey, I'm Ginesh 👋
+            Hey, I'm Ginesh Tandel 👋
           </p>
           <h1 className="mt-4 text-5xl font-extrabold leading-[1.1] tracking-tight sm:text-6xl lg:text-7xl min-h-[3.3em]">
-            <span className={wordIndex === 0 && !isDone ? "text-primary" : wordIndex > 0 || isDone ? "text-primary" : "text-foreground"}>
+            <span
+              className={
+                wordIndex === 0 && !isDone
+                  ? "text-primary"
+                  : wordIndex > 0 || isDone
+                    ? "text-primary"
+                    : "text-foreground"
+              }
+            >
               {wordIndex === 0 && !isDone ? displayText : titles[0]}
             </span>
             {(wordIndex > 0 || isDone) && <br />}
             <span className="text-foreground">
-              {wordIndex === 1 && !isDone ? displayText : wordIndex > 1 || isDone ? titles[1] : ""}
+              {wordIndex === 1 && !isDone
+                ? displayText
+                : wordIndex > 1 || isDone
+                  ? titles[1]
+                  : ""}
             </span>
             {(wordIndex > 1 || isDone) && <br />}
             <span className="text-foreground">
@@ -84,7 +118,12 @@ export function HeroSection() {
                 Get In Touch
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-6" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="rounded-full px-6"
+              asChild
+            >
               <a href="#projects">
                 <ArrowDown className="mr-2 h-4 w-4" />
                 Browse Projects
