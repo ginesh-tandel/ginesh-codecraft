@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { ArrowDown, Download, Send, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -20,13 +20,38 @@ function useTypingEffect(text: string, speed = 80) {
   return { displayText: text.slice(0, charIndex), isDone };
 }
 
+function useParallax(speed = 0.4) {
+  const [offset, setOffset] = useState(0);
+
+  const handleScroll = useCallback(() => {
+    setOffset(window.scrollY * speed);
+  }, [speed]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  return offset;
+}
+
 export function HeroSection() {
   const { displayText, isDone } = useTypingEffect(fullTitle);
+  const parallaxOffset = useParallax(0.35);
 
   const lines = displayText.split("\n");
 
   return (
-    <section id="home" className="flex min-h-screen items-center px-6 pt-20">
+    <section id="home" className="relative flex min-h-screen items-center px-6 pt-20 overflow-hidden">
+      {/* Parallax background elements */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{ transform: `translateY(${parallaxOffset}px)` }}
+      >
+        <div className="absolute -top-20 -left-32 h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute -bottom-40 -right-32 h-[600px] w-[600px] rounded-full bg-primary/8 blur-3xl" />
+        <div className="absolute top-1/3 left-1/2 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-accent/10 blur-2xl" />
+      </div>
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 md:grid-cols-2">
         <div>
           <p className="animate-fade-up text-lg text-muted-foreground">
