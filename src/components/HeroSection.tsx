@@ -121,7 +121,7 @@ export function HeroSection() {
             className="rounded-full px-6 border-primary"
             asChild
           >
-            <a href="/resume.pdf" download>
+            <a href="/Resume.pdf" download>
               <Download className="mr-2 h-4 w-4" />
               Download CV
             </a>
