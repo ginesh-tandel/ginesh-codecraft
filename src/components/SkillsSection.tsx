@@ -6,18 +6,70 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 const categories = [
   {
     icon: Monitor,
+    title: "Languages & Frameworks",
+    skills: [
+      "C#",
+      ".NET",
+      "ASP.NET Core",
+      "Web API",
+      "JavaScript",
+      "TypeScript",
+    ],
+  },
+  {
+    icon: Monitor,
     title: "Frontend",
-    skills: ["React", "Angular", "JavaScript", "TypeScript", "HTML", "CSS", "Bootstrap"],
+    skills: [
+      "React",
+      "Angular",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Responsive UI Development",
+    ],
   },
   {
     icon: Server,
-    title: "Backend",
-    skills: ["C#", ".NET Core", "ASP.NET Core", "REST APIs", "Microservices", "Clean Architecture", "JWT"],
+    title: "Backend & Architecture",
+    skills: [
+      "RESTful APIs",
+      "Microservices",
+      "Clean Architecture",
+      "OOP",
+      "SOLID Principles",
+      "Design Patterns",
+    ],
   },
   {
     icon: Database,
-    title: "Database & Tools",
-    skills: ["SQL Server", "Azure", "Docker", "Git", "CI/CD", "Redis", "RabbitMQ"],
+    title: "Databases",
+    skills: [
+      "SQL Server",
+      "Entity Framework Core",
+      "Database Design",
+      "Performance Tuning",
+    ],
+  },
+  {
+    icon: Server,
+    title: "Cloud & DevOps",
+    skills: [
+      "Microsoft Azure",
+      "Docker",
+      "CI/CD Pipelines",
+      "Git",
+      "GitHub Actions",
+    ],
+  },
+  {
+    icon: Database,
+    title: "Practices & Methodologies",
+    skills: [
+      "Agile/Scrum",
+      "Testable Code",
+      "Code Reviews",
+      "Performance Optimization",
+    ],
   },
 ];
 
@@ -26,8 +78,13 @@ export function SkillsSection() {
 
   return (
     <section id="skills" className="px-6 py-28">
-      <div ref={ref} className={`mx-auto max-w-6xl transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-        <p className="text-sm font-semibold uppercase tracking-widest text-primary">Skills</p>
+      <div
+        ref={ref}
+        className={`mx-auto max-w-6xl transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      >
+        <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+          Skills
+        </p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Technical Skills
         </h2>
@@ -50,7 +107,11 @@ export function SkillsSection() {
               </CardHeader>
               <CardContent className="flex flex-wrap gap-2">
                 {cat.skills.map((skill) => (
-                  <Badge key={skill} variant="secondary" className="text-xs font-medium">
+                  <Badge
+                    key={skill}
+                    variant="secondary"
+                    className="text-xs font-medium"
+                  >
                     {skill}
                   </Badge>
                 ))}

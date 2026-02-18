@@ -5,31 +5,61 @@ const experiences = [
   {
     period: "2020 – Present",
     title: "Freelance Senior .NET Core Developer",
-    company: "Self-Employed",
+    company: "Remote",
     bullets: [
-      "Delivered 15+ enterprise-grade applications for clients across fintech, HR, and SaaS domains",
-      "Architected microservices-based solutions handling 100K+ daily transactions",
-      "Implemented CI/CD pipelines reducing deployment time by 60%",
+      "Architected scalable cloud-native distributed applications using ASP.NET Core, Azure, Docker, and microservices",
+      "Delivered enterprise-grade solutions for global clients in Agile remote teams",
+      "Automated CI/CD pipelines and optimized performance to accelerate release cycles",
     ],
   },
   {
-    period: "2017 – 2020",
+    period: "Apr 2019 – Jun 2020",
     title: "Senior Software Engineer",
-    company: "Enterprise Solutions Ltd.",
+    company: "Spaculus Software",
     bullets: [
-      "Led a team of 6 developers building scalable cloud-native applications on Azure",
-      "Optimized SQL Server queries improving application performance by 40%",
-      "Migrated monolithic application to microservices architecture",
+      "Led development of a cloud-based financial platform supporting 500+ users",
+      "Optimized Azure SQL and backend performance reducing response time by 25%",
+      "Delivered scalable, production-ready enterprise features",
     ],
   },
   {
-    period: "2014 – 2017",
-    title: "Software Engineer",
-    company: "Tech Innovations Inc.",
+    period: "Nov 2018 – Feb 2019",
+    title: "Senior Software Engineer",
+    company: "Rigel Networks",
     bullets: [
-      "Developed RESTful APIs serving 50K+ users with 99.9% uptime",
-      "Built responsive SPAs using Angular and React with TypeScript",
-      "Implemented JWT-based authentication and role-based access control",
+      "Enhanced scalable backend services for enterprise applications",
+      "Built real-time Angular dashboards improving reporting efficiency by 40%",
+      "Reduced production downtime by 20% through system optimizations",
+    ],
+  },
+  {
+    period: "Feb 2017 – Sept 2018",
+    title: "Software Engineer",
+    company: "Bharti Soft Tech Pvt. Ltd.",
+    bullets: [
+      "Delivered Azure-hosted enterprise applications for multiple clients",
+      "Improved Agile delivery workflows increasing feature release speed by 25%",
+      "Collaborated with cross-functional teams to ship scalable solutions",
+    ],
+  },
+  {
+    period: "Dec 2015 – Feb 2017",
+    title: ".NET Developer",
+    company: "Itact Solutions",
+    bullets: [
+      "Developed secure hospital management systems for 200+ daily users",
+      "Implemented role-based authentication and scalable backend architecture",
+      "Built REST APIs supporting high-availability systems",
+    ],
+  },
+  {
+    period: "Jan 2015 – Oct 2015",
+    title: ".NET Developer",
+    company: "Brelicon Technologies",
+    bullets: [
+      "Built a centralized placement platform managing 1,000+ records",
+      "Optimized backend data processing improving efficiency by 30%",
+      "Maintained scalable and reliable application architecture",
     ],
   },
 ];
@@ -39,8 +69,13 @@ export function ExperienceSection() {
 
   return (
     <section id="experience" className="px-6 py-28">
-      <div ref={ref} className={`mx-auto max-w-4xl transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-        <p className="text-sm font-semibold uppercase tracking-widest text-primary">Career</p>
+      <div
+        ref={ref}
+        className={`mx-auto max-w-4xl transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      >
+        <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+          Career
+        </p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Experience
         </h2>
@@ -67,7 +102,9 @@ export function ExperienceSection() {
                     <Briefcase className="h-4 w-4" />
                     {exp.period}
                   </div>
-                  <h3 className="text-lg font-bold text-foreground">{exp.title}</h3>
+                  <h3 className="text-lg font-bold text-foreground">
+                    {exp.title}
+                  </h3>
                   <p className="text-sm text-muted-foreground">{exp.company}</p>
                   <ul className="mt-3 space-y-1.5">
                     {exp.bullets.map((b, j) => (

@@ -1,5 +1,11 @@
 import { ExternalLink } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
@@ -19,6 +25,21 @@ const projects = [
     desc: "An Agile project management tool enabling teams to plan sprints, track progress, manage backlogs, and generate velocity reports in real-time.",
     tags: ["C#", "React", "TypeScript", "Azure", "CI/CD", "JWT"],
   },
+  {
+    title: "Hospital Management System",
+    desc: "A secure healthcare management platform for handling patient records, appointments, billing, and role-based access control, supporting high daily user traffic with reliable backend architecture.",
+    tags: ["ASP.NET Core", "C#", "SQL Server", "REST API", "JWT"],
+  },
+  {
+    title: "Document Management System",
+    desc: "A secure platform for storing, organizing, and sharing business documents with version control and role-based access management.",
+    tags: ["ASP.NET Core", "Angular", "SQL Server", "Azure", "JWT"],
+  },
+  {
+    title: "Central Placement Platform",
+    desc: "A centralized recruitment and placement system for managing candidate records, job postings, and application workflows with optimized data processing and scalable backend services.",
+    tags: [".NET", "C#", "SQL Server", "Web API", "Azure"],
+  },
 ];
 
 export function ProjectsSection() {
@@ -26,8 +47,13 @@ export function ProjectsSection() {
 
   return (
     <section id="projects" className="px-6 py-28">
-      <div ref={ref} className={`mx-auto max-w-6xl transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-        <p className="text-sm font-semibold uppercase tracking-widest text-primary">Work</p>
+      <div
+        ref={ref}
+        className={`mx-auto max-w-6xl transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      >
+        <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+          Work
+        </p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Projects
         </h2>
@@ -47,7 +73,9 @@ export function ProjectsSection() {
                   <CardTitle className="text-lg">{p.title}</CardTitle>
                   <ExternalLink className="h-4 w-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
-                <CardDescription className="leading-relaxed">{p.desc}</CardDescription>
+                <CardDescription className="leading-relaxed">
+                  {p.desc}
+                </CardDescription>
               </CardHeader>
               <CardContent className="mt-auto flex flex-wrap gap-2">
                 {p.tags.map((tag) => (

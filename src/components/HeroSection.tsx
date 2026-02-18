@@ -4,9 +4,14 @@ import { Button } from "@/components/ui/button";
 import profilePhoto from "@/assets/proffessional-photo-office.jpg";
 import resumePath from "@/assets/resume.pdf";
 
-const fullTitle = "Senior .NET\nFull Stack\nDeveloper";
+const fullTitle = "Senior\nFull Stack\nEngineer (.NET)";
 
-const roles = [".NET Developer", "Full Stack Engineer", "Cloud Architect", "Software Consultant"];
+const roles = [
+  "Senior .NET Software Engineer",
+  "Full Stack Software Engineer",
+  "Technical Consultant",
+  "Remote Tech Consultant",
+];
 
 function useTypingEffect(text: string, speed = 80) {
   const [charIndex, setCharIndex] = useState(0);
@@ -103,6 +108,8 @@ export function HeroSection() {
             <span className="text-foreground">{lines[1] || ""}</span>
             {lines.length > 2 && <br />}
             <span className="text-foreground">{lines[2] || ""}</span>
+            {lines.length > 3 && <br />}
+            <span className="text-foreground">{lines[3] || ""}</span>
             {!isDone && (
               <span className="ml-1 inline-block w-[3px] h-[1em] bg-primary animate-[pulse_1s_ease-in-out_infinite] align-middle" />
             )}
@@ -112,8 +119,9 @@ export function HeroSection() {
             <span className="ml-0.5 inline-block w-[2px] h-[1em] bg-primary animate-[pulse_0.8s_ease-in-out_infinite] align-middle" />
           </p>
           <p className="mt-3 max-w-md text-base leading-relaxed text-muted-foreground">
-            10+ years of experience building scalable cloud applications with
-            .NET, ASP.NET Core, React, Angular, and SQL Server.
+            Senior Full Stack Engineer specializing in scalable cloud
+            applications with .NET and modern web technologies, delivering
+            high-performance end-to-end solutions.
           </p>
           <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap items-center gap-4">
             <Button

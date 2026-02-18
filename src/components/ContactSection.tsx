@@ -11,6 +11,7 @@ import emailjs from "@emailjs/browser";
 import confetti from "canvas-confetti";
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
+  subject: z.string().trim().min(1, "Subject is required").max(100),
   email: z.string().trim().email("Invalid email address").max(255),
   message: z.string().trim().min(1, "Message is required").max(1000),
 });
@@ -21,7 +22,12 @@ const EMAILJS_PUBLIC_KEY = "6wUtCP-uEoQTb6aDV";
 
 export function ContactSection() {
   const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    subject: "",
+    email: "",
+    message: "",
+  });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sending, setSending] = useState(false);
   const { ref, isVisible } = useScrollReveal();
@@ -45,6 +51,7 @@ export function ContactSection() {
         EMAILJS_TEMPLATE_ID,
         {
           from_name: result.data.name,
+          subject: result.data.subject,
           from_email: result.data.email,
           message: result.data.message,
         },
@@ -59,7 +66,7 @@ export function ContactSection() {
         title: "Message sent!",
         description: "Thanks for reaching out. I'll get back to you soon.",
       });
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", subject: "", email: "", message: "" });
     } catch {
       toast({
         title: "Failed to send",
@@ -133,7 +140,7 @@ export function ContactSection() {
                 id="name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                placeholder="Your name"
+                placeholder="Enter name"
                 className="mt-1"
               />
               {errors.name && (
@@ -152,6 +159,21 @@ export function ContactSection() {
               />
               {errors.email && (
                 <p className="mt-1 text-xs text-destructive">{errors.email}</p>
+              )}
+            </div>
+            <div>
+              <Label htmlFor="subject">Subject</Label>
+              <Input
+                id="subject"
+                value={form.subject}
+                onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                placeholder="Enter subject"
+                className="mt-1"
+              />
+              {errors.subject && (
+                <p className="mt-1 text-xs text-destructive">
+                  {errors.subject}
+                </p>
               )}
             </div>
             <div>

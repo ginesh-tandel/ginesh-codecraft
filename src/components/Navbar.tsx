@@ -21,7 +21,7 @@ export function Navbar() {
   const { theme, setTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const brandName = "Ginesh.";
+  const brandName = "Ginesh";
   const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
@@ -38,11 +38,17 @@ export function Navbar() {
           onClick={() => scrollTo("home")}
           className="cursor-pointer text-xl font-extrabold tracking-tight transition-transform duration-200 hover:scale-110"
         >
-          {brandName.slice(0, charIndex).split("").map((char, i) => (
-            <span key={i} className={i === 0 ? "text-primary" : "text-foreground"}>
-              {char}
-            </span>
-          ))}
+          {brandName
+            .slice(0, charIndex)
+            .split("")
+            .map((char, i) => (
+              <span
+                key={i}
+                className={i === 0 ? "text-primary" : "text-foreground"}
+              >
+                {char}
+              </span>
+            ))}
           {charIndex < brandName.length && (
             <span className="ml-0.5 inline-block w-[2px] h-[1em] bg-primary animate-[pulse_0.8s_ease-in-out_infinite] align-middle" />
           )}
@@ -96,7 +102,10 @@ export function Navbar() {
             {navLinks.map((l) => (
               <li key={l.id}>
                 <button
-                  onClick={() => { scrollTo(l.id); setMobileOpen(false); }}
+                  onClick={() => {
+                    scrollTo(l.id);
+                    setMobileOpen(false);
+                  }}
                   className="block w-full text-left rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 >
                   {l.label}
