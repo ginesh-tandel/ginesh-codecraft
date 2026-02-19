@@ -1,6 +1,6 @@
 # 👋 Hi, I'm Ginesh Tandel
 
-**Senior .NET Full Stack Consultant**
+**Senior .NET Full Stack Engineer**
 
 I help organizations build scalable, secure, and high-performance web platforms. With 10+ years of experience in .NET and modern frontend frameworks, I design efficient APIs, modernize backend systems, and deliver production-ready solutions that improve reliability and performance. 
 
