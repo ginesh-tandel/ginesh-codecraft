@@ -31,8 +31,8 @@ const projects = [
     tags: ["ASP.NET Core", "C#", "SQL Server", "REST API", "JWT"],
   },
   {
-    title: "Document Management System",
-    desc: "A secure platform for storing, organizing, and sharing business documents with version control and role-based access management.",
+    title: "Learning Management System",
+    desc: "Web-based platform for managing online courses, student enrollment, assessments, content delivery, progress tracking, and performance analytics with role-based access control.",
     tags: ["ASP.NET Core", "Angular", "SQL Server", "Azure", "JWT"],
   },
   {
